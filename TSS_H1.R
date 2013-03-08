@@ -30,12 +30,14 @@ head(rep4_tss)
 
 identical(rep1_tss,rep2_tss)
 identical(rep4_tss, rep3_tss)
+# replicates 1 and 2 are indetical & replicates 3 and 4 are identical in their Tx
 
-# replicates 1 and 2 are indetical & replicates 3 and 4 are identical
 
-# combine replicates 1 and 2 
 # npIDR < 0.1 is expressed
 # ref: http://authors.library.caltech.edu/35106/2/nature11233-s1.pdf
+identical(tss_rep1$V25, tss_rep2$V25) 
+identical(tss_rep3$V25, tss_rep4$V25)
+#npIDRs rep1 and rep2 are identical, use either one, we used rep1 for subsetting
 tss_expressed <- tss_rep1[tss_rep1$V25<0.1, c(1,4,5)]
 tss_nonExpressed <- tss_rep1[tss_rep1$V25>0.1, c(1,4,5)]
 tss_all <- tss_rep1[,c(1,4,5)]
